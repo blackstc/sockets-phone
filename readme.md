@@ -34,6 +34,7 @@ io.on('connection', function(socket){
 });
 ```
 
+#### Main.js
 Next, let's add the socket on the client side in our main.js:
 ```javascript
 var socket = io();
@@ -47,4 +48,19 @@ a user connected
 
 And if you try refreshing the page or visiting localhost:3000 on multiple tabs, you'll notice the server will log that "a user connecter" for each new connection.
 
+
 ## Step 2
+Let's create a controller html that will be used specifically for our phones.  Start by adding and "controller.html" file to the client directory and a "controller.js" file to the "js" directory.  All we really need in the controller.html, besides the standard boilerplate, is a button to test the connection.  Our controller.html should look like this:
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Phone Socket</title>
+    </head>
+    <body>
+        <button type="button" name="button">Check Socket</button>
+    </body>
+    <script type="text/javascript" src="./js/controller.js"></script>
+</html>
+```
