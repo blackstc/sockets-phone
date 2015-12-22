@@ -6,4 +6,45 @@ In this tutorial we will be covering the basics of how to connect your phone to 
 ## Setup
 Fork and clone the repository linked above, this will be the starting point for creating our application. I've created a new branch for each section as we move along the course if you get lost.
 
+After you have cloned this repository, run:
+```
+npm i
+```
+
 ## Step 1
+To get started, if we run:
+
+```sh
+$ npm start
+```
+In the console we should see "Express server listening on port 3000", and then if we visit localhost:3000, we'll see "Fun with Sockets".
+
+Now that we have our project structure setup, lets start creating our socket connections.  First, let's start with the server side implementation.
+
+#### App.js
+At the bottom of app.js, let's initialize an instance of socket.io with the following code:
+```javascript
+var io = require('socket.io')(server);
+```
+
+Now let's create a connection between our html and our server:
+```javascript
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+```
+
+Next, let's add the socket on the client side in our main.js:
+```javascript
+var socket = io();
+```
+
+Finally, let's restart our server and when we visit localhost:3000, we should see:
+```sh
+Express server listening on port 3000
+a user connected
+```
+
+And if you try refreshing the page or visiting localhost:3000 on multiple tabs, you'll notice the server will log that "a user connecter" for each new connection.
+
+## Step 2
